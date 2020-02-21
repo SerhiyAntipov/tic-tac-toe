@@ -4,7 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let appData = {
+title: "Tic-tac-toe",
+description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum iure ratione maiores, deleniti accusamus animi esse quos totam libero consequuntur, quod cumque veniam harum maxime, earum dicta et similique perspiciatis. Hic labore adipisci itaque recusandae praesentium assumenda eum non vitae temporibus? Quaerat odio deserunt praesentium assumenda molestiae doloremque aperiam et.",
+// playingField: Array(9).fill(null)
+}
+
+ReactDOM.render(<App  appData={appData}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
