@@ -8,9 +8,19 @@ class App extends React.Component {
     this.state = {
       playingField: Array(9).fill(null),
       count: 0,
-      reset: ''
-    }
+      reset: '',
 
+    }
+    this.winnerLine = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ]
   }
 
   // static getDerivedStateFromProps(props, state) {
@@ -40,15 +50,21 @@ class App extends React.Component {
 
   winner = () => {
     let move = (this.state.count % 2 === 0) ? 'X' : 'O';
-    console.log(move)
+    console.log(move);
+
+
     if (this.state.count === 8) {
-      this.setState({ reset: 'reset' })
+      let reset = <div className="reset" onClick={this.resetApp}>Reset</div>
+      return (
+        this.setState({ reset: reset })
+      )
     }
   }
-  
+
   resetApp = () => {
     this.setState({ playingField: Array(9).fill(null) })
-    this.setState({ count: 0})
+    this.setState({ count: 0 })
+    this.setState({ reset: '' })
   }
 
   render() {
@@ -64,11 +80,10 @@ class App extends React.Component {
             )
           })}
         </div>
-        <div className="reset" onClick={this.resetApp}>{this.state.reset}</div>
+        {this.state.reset}
       </div>
     )
   }
-
 }
 
 export default App;

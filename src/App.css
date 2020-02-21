@@ -24,3 +24,14 @@
     font-size: 2rem;
     font-weight: bold;
 }
+
+.reset{
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 30px;
+    color: black;
+    
+}
