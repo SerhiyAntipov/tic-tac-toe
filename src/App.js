@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +8,7 @@ class App extends React.Component {
       playingField: Array(9).fill(null),
       count: 0,
       reset: '',
-
+      winner: ''
     }
     this.winnerLine = [
       [0, 1, 2],
@@ -50,21 +49,40 @@ class App extends React.Component {
 
   winner = () => {
     let move = (this.state.count % 2 === 0) ? 'X' : 'O';
-    console.log(move);
+    for (let i = 0; i < this.winnerLine.length; i++) {
+      let line = this.winnerLine[i];
+      if (this.state.playingField[line[0]] === move &&
+        this.state.playingField[line[1]] === move &&
+        this.state.playingField[line[2]] === move
+      ) {
+        let winner = <div className="winner">{move} Winner</div>;
+        this.setState({ winner: winner });
 
+        let reset = <div className="reset" onClick={this.resetApp}>Reset</div>
+        this.setState({ reset: reset })
+
+        let field = document.querySelectorAll('.playing-field__square');
+        field[line[0]].classList.add("bg-red");
+        field[line[1]].classList.add("bg-red");
+        field[line[2]].classList.add("bg-red");
+      }
+    }
 
     if (this.state.count === 8) {
       let reset = <div className="reset" onClick={this.resetApp}>Reset</div>
-      return (
-        this.setState({ reset: reset })
-      )
+      this.setState({ reset: reset })
     }
   }
 
   resetApp = () => {
-    this.setState({ playingField: Array(9).fill(null) })
-    this.setState({ count: 0 })
-    this.setState({ reset: '' })
+    this.setState({ playingField: Array(9).fill(null) });
+    this.setState({ count: 0 });
+    this.setState({ reset: '' });
+    this.setState({ winner: '' });
+    let redField = document.querySelectorAll('.bg-red');
+    for (let i = 0; i < redField.length; i++) {
+      redField[i].classList.remove("bg-red");
+    }
   }
 
   render() {
@@ -80,6 +98,7 @@ class App extends React.Component {
             )
           })}
         </div>
+        {this.state.winner}
         {this.state.reset}
       </div>
     )

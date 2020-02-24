@@ -1,7 +1,12 @@
-.tic-tac-toe{
+#root{
+    padding: 15px;
+}
+
+.tic-tac-toe {
     text-align: center;
 }
-.playing-field{
+
+.playing-field {
     width: 150px;
     height: 150px;
     display: flex;
@@ -11,7 +16,7 @@
     background-color: antiquewhite;
 }
 
-.playing-field__square{
+.playing-field__square {
     width: 50px;
     height: 50px;
     border: 1px solid #000;
@@ -25,13 +30,22 @@
     font-weight: bold;
 }
 
-.reset{
+.reset {
     display: inline-block;
     border: 1px solid #000;
     border-radius: 5px;
     cursor: pointer;
     padding: 5px;
-    margin-top: 30px;
+    margin-top: 10px;
     color: black;
-    
+}
+
+.winner{
+    font-weight: bold;
+    margin-top: 10px;
+    color: red;
+}
+
+.bg-red {
+    background-color: red;
 }
