@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -65,6 +66,10 @@ class App extends React.Component {
         field[line[0]].classList.add("bg-red");
         field[line[1]].classList.add("bg-red");
         field[line[2]].classList.add("bg-red");
+
+        // setTimeout(() => {
+        //   this.resetApp()
+        // }, 5000)
       }
     }
 
