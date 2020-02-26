@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 let appData = {
 title: "Tic-tac-toe",
-description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum iure ratione maiores, deleniti accusamus animi esse quos totam libero consequuntur, quod cumque veniam harum maxime, earum dicta et similique perspiciatis. Hic labore adipisci itaque recusandae praesentium assumenda eum non vitae temporibus? Quaerat odio deserunt praesentium assumenda molestiae doloremque aperiam et.",
+description: "Tic-tac-toe (American English), noughts and crosses (British English), or Xs and Os is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.",
 // playingField: Array(9).fill(null)
 }
 
